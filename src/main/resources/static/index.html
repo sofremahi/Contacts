@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .contacts-container {
+            display: flex;                /* Use flexbox for layout */
+            flex-wrap: wrap;             /* Allow wrapping of cards */
+            justify-content: center;      /* Center the cards */
+        }
+        .contact-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            width: 200px;                /* Fixed width for each card */
+            height: 300px;               /* Fixed height for each card */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;               /* Use flexbox inside the card */
+            flex-direction: column;      /* Arrange elements in a column */
+            justify-content: space-between; /* Space elements evenly */
+        }
+        img {
+            width: 100%;                 /* Full width of the card */
+            height: 150px;               /* Fixed height */
+            object-fit: cover;           /* Cover the area while maintaining aspect ratio */
+            border-radius: 5px;
+            margin-bottom: 10px;         /* Space between image and info */
+        }
+        .contact-info {
+            text-align: left;            /* Align text to the left */
+        }
+        .contact-info p {
+            margin: 4px 0;               /* Space between paragraphs */
+            font-size: 14px;             /* Font size for the info */
+        }
+    </style>
+</head>
+<body>
+<h1>Contact List</h1>
+<div class="contacts-container" id="contacts-container"></div>
+
+<script>
+    async function fetchContacts() {
+        try {
+            const response = await fetch('http://localhost:8080/contacts');
+            const data = await response.json();
+            displayContacts(data.content);
+        } catch (error) {
+            console.error('Error fetching contacts:', error);
+        }
+    }
+
+    function displayContacts(contacts) {
+        const container = document.getElementById('contacts-container');
+        container.innerHTML = ''; // Clear previous contacts
+
+        contacts.forEach(contact => {
+            const card = document.createElement('div');
+            card.className = 'contact-card';
+
+            card.innerHTML = `
+                    <img src="${contact.photoUrl}" alt="${contact.name}">
+                    <div class="contact-info">
+                        <p><strong>Name:</strong> ${contact.name}</p>
+                        <p><strong>Title:</strong> ${contact.title}</p>
+                        <p><strong>Status:</strong> ${contact.status}</p>
+                        <p><strong>Phone:</strong> ${contact.phone}</p>
+                        <p><strong>Email:</strong></p>
+                        <p>${contact.email}</p>
+                    </div>
+                `;
+
+            container.appendChild(card);
+        });
+    }
+
+    fetchContacts();
+</script>
+</body>
+</html>
