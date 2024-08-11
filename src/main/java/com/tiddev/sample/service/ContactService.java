@@ -1,6 +1,7 @@
 package com.tiddev.sample.service;
 
 import ch.qos.logback.classic.spi.IThrowableProxy;
+import com.tiddev.sample.service.common.exception.NoResourceException;
 import com.tiddev.sample.service.model.Contacts;
 import com.tiddev.sample.service.repository.ContactRepo;
 import jakarta.transaction.Transactional;
@@ -37,7 +38,7 @@ public class ContactService {
 
     public Contacts getContact(String id) {
         return contactRepo.findById(id).orElseThrow(
-                () -> new RuntimeException("contact not found")
+                () -> new NoResourceException("no contact found")
         );
     }
 

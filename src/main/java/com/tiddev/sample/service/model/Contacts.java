@@ -6,6 +6,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +28,8 @@ public class Contacts {
     private String id;
     @Column(name = "CONTACT_NAME")
     private String name;
+    @Email(message = "email is not valid")
+    @NotEmpty(message = "email can not be empty")
     private String email;
     private String title ;
     private String phone;

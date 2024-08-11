@@ -4,8 +4,10 @@ import com.tiddev.sample.service.ContactService;
 import com.tiddev.sample.service.model.Contacts;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,7 +28,7 @@ public class ContactController {
     private final ContactService service;
 
     @PostMapping
-    public ResponseEntity<Contacts> createContact(@RequestBody Contacts contact){
+    public ResponseEntity<Contacts> createContact(@RequestBody @Validated Contacts contact){
         return ResponseEntity.created(URI.create("/contacts/userID")).body(service.saveContact(contact));
     }
     @GetMapping
