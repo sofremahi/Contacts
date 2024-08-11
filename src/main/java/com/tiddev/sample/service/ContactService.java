@@ -1,7 +1,6 @@
 package com.tiddev.sample.service;
 
-import ch.qos.logback.classic.spi.IThrowableProxy;
-import com.tiddev.sample.service.common.exception.NoResourceException;
+import com.tiddev.sample.common.exception.NoResourceException;
 import com.tiddev.sample.service.model.Contacts;
 import com.tiddev.sample.service.repository.ContactRepo;
 import jakarta.transaction.Transactional;

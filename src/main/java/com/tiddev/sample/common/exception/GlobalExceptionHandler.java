@@ -1,4 +1,4 @@
-package com.tiddev.sample.service.common.exception;
+package com.tiddev.sample.common.exception;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;

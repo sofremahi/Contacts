@@ -1,4 +1,4 @@
-package com.tiddev.sample.service.common.exception;
+package com.tiddev.sample.common.exception;
 
 public class NoResourceException extends RuntimeException {
 

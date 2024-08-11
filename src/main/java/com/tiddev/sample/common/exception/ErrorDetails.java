@@ -1,4 +1,4 @@
-package com.tiddev.sample.service.common.exception;
+package com.tiddev.sample.common.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
