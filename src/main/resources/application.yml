@@ -1,4 +1,3 @@
-
 spring:
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver
@@ -8,30 +7,23 @@ spring:
     hikari:
       schema: MAHAN
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # Ensure all endpoints are exposed
+
+  info:
+    app:
+      name: Contacts
+      description: This is my Contact REST API using Spring Boot with Actuator.
+      version: 1.0.1
+
+  health:
+    show-details: always  # Ensure health details are always shown
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-#spring:
-#datasource:
-#driver-class-name: oracle.jdbc.driver.OracleDriver
-#url: jdbc:oracle:thin:@//192.168.100.121:1521/lcdev
-#username: MAHAN
-#password: mahan
-#hikari:
-#schema: MAHAN
-#jpa show-sql: true
