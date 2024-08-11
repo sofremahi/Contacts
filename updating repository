@@ -1,0 +1,32 @@
+Set the remote URL:
+
+bash
+Copy code
+git remote set-url origin https://github.com/sofremahi/Contacts.git
+Verify the remote URL:
+
+bash
+Copy code
+git remote -v
+Switch to the master branch:
+
+bash
+Copy code
+git checkout master
+Add and commit changes:
+
+bash
+Copy code
+git add .
+git commit -m "Your commit message"
+Push changes to the master branch:
+
+bash
+Copy code
+git push -u origin master
+Note
+If the master branch does not exist in your local repository, you might need to create it or pull it from the remote first:
+bash
+Copy code
+git fetch origin
+git checkout -b master origin/master
