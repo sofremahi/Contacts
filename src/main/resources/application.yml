@@ -6,7 +6,11 @@ spring:
     password: mahan
     hikari:
       schema: MAHAN
-
+#  security:
+#    user:
+#      name: user
+#      password: password
+#      roles: ADMIN , USER
 management:
   endpoints:
     web:
@@ -21,6 +25,7 @@ management:
 
   health:
     show-details: always  # Ensure health details are always shown
+
 
 
 

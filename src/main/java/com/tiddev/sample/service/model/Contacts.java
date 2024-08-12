@@ -37,5 +37,4 @@ public class Contacts {
     private String number;
     private String status;
     private String photoUrl;
-
 }

@@ -25,3 +25,24 @@ VALUES (SYS_GUID(), 'Charles Leclerc', 'charlesleclerc@gmail.com', 'F1 Driver', 
 -- Max Verstappen
 INSERT INTO CONTACTS (CONTACT_ID, CONTACT_NAME, EMAIL, TITLE, PHONE, CONTACT_NUMBER, STATUS, PHOTO_URL)
 VALUES (SYS_GUID(), 'Max Verstappen', 'maxverstappen@gmail.com', 'F1 Driver', '+31 6 12345678', '7', 'Active', NULL);
+
+
+INSERT INTO TB_USERS (ID, USERNAME, EMAIL, PASSWORD)
+VALUES (1, 'username', 'user@email.com', '$2a$10$IBdLjQTCcGXY4UokNbtSWelkLMYwYtwaR6f5ItE/sdFJ3o9mmbLlW');
+
+INSERT INTO TB_USERS (ID, USERNAME, EMAIL, PASSWORD)
+VALUES (2, 'admin', 'admin@email.com', '$2a$10$1Inzup9xhJ93bmvlvvd/P.K816LG9k4aD4SzEAsXB9zFLCFZagk02');
+
+INSERT INTO TB_ROLES (ID, ROLE)
+VALUES (1, 'ROLE_USER');
+
+INSERT INTO TB_ROLES (ID, ROLE)
+VALUES (2, 'ROLE_ADMIN');
+
+-- Assign ROLE_USER to username
+INSERT INTO USERS_ROLES (USER_ID, ROLE_ID)
+VALUES (1, 1);
+
+-- Assign ROLE_ADMIN to admin
+INSERT INTO USERS_ROLES (USER_ID, ROLE_ID)
+VALUES (2, 2);
